@@ -1,0 +1,11 @@
+plugins {
+	 id 'java'
+	 id 'groovy'
+}
+
+group 'com.github.tonywell'
+version '0.0.1'
+
+task wrapper(type: Wrapper) {
+	gradleVersion = '3.5'
+}
