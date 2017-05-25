@@ -1,5 +1,7 @@
 package com.github.tonywell.assembly.task;
 
+import org.gradle.api.tasks.TaskAction;
+
 /**
  * Created with IntelliJ IDEA.
  * User: tonywill
@@ -9,8 +11,9 @@ package com.github.tonywell.assembly.task;
  */
 public class ZipTask extends AbstractTask {
 
+    @TaskAction
     public void zip() {
-        System.out.println("zip");
+        System.out.println("zip doing");
     }
 
 //    public doZip()
