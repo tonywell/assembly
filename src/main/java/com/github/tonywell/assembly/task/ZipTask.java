@@ -2,6 +2,8 @@ package com.github.tonywell.assembly.task;
 
 import com.github.tonywell.assembly.extensions.FileSet;
 import org.gradle.api.NamedDomainObjectContainer;
+import org.gradle.api.logging.Logger;
+import org.gradle.api.logging.Logging;
 import org.gradle.api.tasks.TaskAction;
 
 /**
@@ -13,9 +15,14 @@ import org.gradle.api.tasks.TaskAction;
  */
 public class ZipTask extends AbstractTask {
 
+    private static final Logger logger = Logging.getLogger(ZipTask.class);
+
+    public ZipTask() {
+        dependsOn("build");
+    }
     @TaskAction
     public void zip() {
-        System.out.println("zip doing");
+        logger.info("zip ing....");
         NamedDomainObjectContainer<FileSet> fileSets = (NamedDomainObjectContainer<FileSet>)getProject().getExtensions().getByName("fileSets");
         fileSets.forEach(
                 fileSet -> System.out.println(((FileSet)fileSet).getDirectory() + " : " + ((FileSet)fileSet).getOutputDirectory())
